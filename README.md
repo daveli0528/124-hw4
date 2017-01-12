@@ -13,11 +13,10 @@ You will often encounter an unexpected challenge or two when learning a new tech
 1. If you haven't already done so, begin by following the instructions in part one of the Google Doc to [set up your IntelliJ project on your laptop](https://docs.google.com/a/macalester.edu/document/d/1zuF7pQvylonBkxgcCaY38sPsqXgPlp6YkB3yA_vHVbQ/edit?usp=sharing).
 2. Follow the instructions in [cloning a repo](https://docs.google.com/a/macalester.edu/document/d/15F5NFm5hoibSV9E5IDO8icvp3ddiJ4cjQ-dXgCP6S9Y/edit?usp=sharing) to clone https://github.com/mac-comp124-f16/124-hw0. After you fork the repo it will be available at https://github.com/your-github-username/124-hw0.
 
-### Setup the assignment
+### Run the tests (they should fail)
 
-1. Open the AreaTest file. The @Test annotation may appear in red. If so, this means that there is a compilation error, and it is occurring because we need to add the junit library to the project. Click on the red @Test, and wait for the red light bulb to pop up. Click the red light bulb and select "Add junit.jar to classpath." The red statements should turn black.
-2. Run the tests. Right click on the class name AreaTest. Select Run -> AreaTest. 
-3. IntellIj will run the tests, but they will fail. Each test has an orange exclamation points and error messages appear in the console when they are complete.
+1. Run the tests. Right click on the class name AreaTest. Select Run -> AreaTest. 
+2. IntellIj will run the tests, but they will fail. Each test has an orange exclamation points and error messages appear in the console when they are complete.
 
 ### Complete the assignment.
 
