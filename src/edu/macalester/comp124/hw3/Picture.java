@@ -15,16 +15,26 @@ public abstract class Picture extends GraphicsGroup {
     protected double height;
     protected double frameWidth;
 
-    // may not need this since a GG can be added to this GG
-    // if use this, perhaps override add in this class to first set this variable
-    private GraphicsGroup scene; // The set of graphics that will be in this picture
-
+        /**
+     * Creates this GraphicsGroup, setting its x, y location (upper left)
+     * and its width and height.
+     *
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     */
     public Picture(double x, double y, double width, double height) {
         super(x,y);
         this.width = width;
         this.height = height;
     }
-
+    /**
+     *  This draws a frame on the outer edge of the picture.
+     *
+     * @param frameWidth width in pixels of the frame
+     * @param color      color of the frame
+     */
     public abstract void drawFrame(float frameWidth, Color color);
 
 }
