@@ -3,53 +3,52 @@ Comp 124 - Homework #3 : A Picture Wall
 
 # Overview
 
-Your goal is to create a CanvasWindow that simulates a wall of 
-framed pictures. Each picture will be its own GraphicsGroup
-that you will place on the canvas in any way that you wish.
+In this activity your goal is to craete a graphics application that will draw a wall full of framed pictures.
+We are not putting a lot of restrictions on this - your pictures can contain any art (although they must not be blank) 
+and you can lay out your pictures houwever you want. 
+The goal of this activity is to practice more object oriented decomposition of problems using a class hierarchy and an abstract class.
 
-The classes that you will create will be related as shown in this diagram (you will have more
-than Face and Eye as classes that you make for pitures):
 
+The classes that you will create will be related as shown in this diagram.
+Note, the diagram shows a `Face` and an `Eye`, however, we do not require these specific classes, these are just an example
+of the classes you might write to enable picture content.
+ 
 ![Class Diagram](photoWall_class_diagram.png)
 
 ## Requirements
 
-1. You are given one abstract class called Picture, which extends GraphicsGroup. 
-You should use it.
-2. You must make a minimum of 2 subclasses of Picture:
-    a. OvalFramePicture, whose shape is an oval with an oval frame.
-    b. RectangleFramePicture, whose shape is a Rectangle
-3. You should make a class called PhotoWall the extends CanvasWindow. 
-4. Your PhotoWall CanvasWindow wall must contain a minimum of 4 pictures of varying sizes-
-at least 2 OvalFramePicture objects and 2 RectanglePicture objects.
-5. Each of your pictures must contain at least one object of type GraphicsGroup, such as the
-Face from the class activity, or the Train, or other simple drawings of some kind, such as flags-
+1. You are given one abstract class called `Picture`, which extends `GraphicsGroup`. 
+You must use it.
+2. You must make a minimum of 2 subclasses of `Picture`:
+    a. `OvalFramePicture`, whose shape is an oval with an oval frame.
+    b. `RectangleFramePicture`, whose shape is a rectangle.
+3. You must make a class called `PhotoWall` the extends `CanvasWindow`. 
+4. The window created by the code in `PhotoWall` must contain a minimum of 4 pictures of varying sizes-
+at least 2 `OvalFramePicture` objects and 2 `RectanglePicture` objects.
+You must have at least three different sizes of pictures showing.
+If you make another subclass of `Picture` please add additional pictures to the `PhotoWall` showing off those classes.
+5. Each of your pictures must contain at least one object of type `GraphicsGroup`, such as the
+`Face` from the class activity, or the `Train`, or other simple drawings of some kind, such as flags-
 this is your chance to be creative.
-6. Your main application class, called PictureApplication, should create a new
-PhotoWall in its main() method.
+6. Your main application class, called `PictureApplication`, should create a new
+`PhotoWall` in its main() method. It should have no other behavior as the `PhotoWall` class should be responsible for defining
+what a photo wall is and should look like.
 
 ### Suggestions for completing the assignment.
 
-Since you have a Picture class that must have subclasses, a good place to start is to
-make one of its subclasses, such as RectangleFramePicture. Notice that you must create
-a method called drawFrame that is abstract in Picture. You do not need to put anything in 
-the RectangleFramePicture except the Frame- since it is a GraphicsGroup, you can add
-the instance of a Face or something else later.
+ * You will be implementing subclasses of the `Picture` class.
+Start by understanding what that class is and what its methods are supposed to do.
 
-Once you have one of the subclasses of Picture, now work on PhotoWall, which should extend
-CanvasWindow. Make a method that is called from the constructor and does the following:
-- Create an instance of RectanglePictureFrame and add it to the PhotoWall;
-- add graphical elements to that instance of RectanglePictureFrame.
+ * Once you understand the `Picture` class focus on implementing one subclass at a time.
 
-Make your PictureApplication class with a very simple main() that creates an instance of your
+ * Test each class carefully. This does not need to be unit tests like last homework (in fact its probably impossible to do with unit tests). 
+ You may find it useful, however, to get your first pictured drawing on the wall before trying to build a second picture class.
+
+ * Each picture is a GraphicsGroup - adding content to a picture frame, therefore, can be done using its `add(GraphicsObject)` method.
+
+ * Make sure that you can change the size of your picture and properly display it on the
 PhotoWall.
 
-Make sure that you can change the size of your picture and properly display it on the
-PhotoWall.
-
-If this seems to work, you can then move on to creating other different kinds of Picture
-class instances with different GraphicsGroup objects in them, using the same process as 
-described above.
 
 ### Submit your asssignment.
 1. Commit your changes: Select the 124-hw3 module, right click, and select Git -> Commit Directory.
@@ -60,3 +59,4 @@ described above.
 6. Select "push" to send your changes to GitHub.
 7. IntelliJ should say "push successful"
 8. Visit your github site in your web browser to make sure the changes you made were pushed correctly.
+9. If you want to be _very_ sure everything is correct - check-out a copy of your code and test it again!
