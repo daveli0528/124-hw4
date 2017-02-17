@@ -7,6 +7,11 @@ Your goal is to create a CanvasWindow that simulates a wall of
 framed pictures. Each picture will be its own GraphicsGroup
 that you will place on the canvas in any way that you wish.
 
+The classes that you will create will be related as shown in this diagram (you will have more
+than Face and Eye as classes that you make for pitures):
+
+![Class Diagram](photoWall_class_diagram.png)
+
 ## Requirements
 
 1. You are given one abstract class called Picture, which extends GraphicsGroup. 
