@@ -46,7 +46,7 @@ Start by understanding what that class is and what its methods are supposed to d
 
  * Each picture is a GraphicsGroup - adding content to a picture frame, therefore, can be done using its `add(GraphicsObject)` method.
 
- * Make sure that you can change the size of your picture and properly display it on the
+ * Make sure that you can create instances of Picture of varying sizes (width and height) and properly display each one at any location on the
 PhotoWall.
 
 
