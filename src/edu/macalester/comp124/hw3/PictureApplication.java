@@ -12,5 +12,7 @@ public class PictureApplication  {
     public static void  main(String[]arg){
         PhotoWall pw=new PhotoWall("PhotoWall",1000,1000);
 
+
+
     }
 }

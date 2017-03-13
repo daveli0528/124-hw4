@@ -2,6 +2,7 @@ package edu.macalester.comp124.hw3;
 
 import activityStarterCode.graphicsGroupEx.Face;
 import comp124graphics.*;
+import kluver.section1.inheritance.Flower;
 
 import java.awt.*;
 import java.awt.Image;
@@ -60,5 +61,12 @@ public class OvalFramePicture extends Picture {
     public void addFace(double x,double y,double width,double height){
         Face face=new Face(x,y,width,height);
         this.add(face);
+    }
+
+    public void addFlower(double x,double y,double width,double height){
+        Flower flower=new Flower(x,y,width);
+        this.add(flower);
+
+
     }
 }

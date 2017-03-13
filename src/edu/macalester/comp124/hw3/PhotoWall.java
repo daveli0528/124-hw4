@@ -1,14 +1,20 @@
 package edu.macalester.comp124.hw3;
 
-import comp124graphics.CanvasWindow;
+import comp124graphics.*;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2017/3/2.
  */
-public class PhotoWall extends CanvasWindow {
+public class PhotoWall extends CanvasWindow implements MouseListener,MouseMotionListener{
     private RectangleFramePicture rectangleFramePicture;
+    private GraphicsObject dragging;
+    private Point lastMouseLocation;
 
 
     /**
@@ -29,6 +35,9 @@ public class PhotoWall extends CanvasWindow {
 
         addOvalFrame(0,500,100,20,200,Color.red,30,30,
                 "C:\\Users\\Administrator\\IdeaProjects\\124-hw3\\src\\edu\\macalester\\comp124\\hw3\\Mario.png",20,20,100,100);
+
+        addMouseListener(this);  // see mousePressed below (others do nothing)
+        addMouseMotionListener(this);
 
     }
 
@@ -54,7 +63,7 @@ public class PhotoWall extends CanvasWindow {
         framePicture.drawFrame(frameWidth,color);
         this.add(framePicture);
         framePicture.addPicture(xpo,ypo,filepath);
-        framePicture.addFace(faceX,faceY,faceW,faceH);
+        framePicture.addFlower(faceX,faceY,faceW,faceH);
     }
 
     /**
@@ -82,8 +91,97 @@ public class PhotoWall extends CanvasWindow {
         framePicture.addFace(faceX,faceY,faceW,faceH);
     }
 
+    private void addRandomRectangleFrame(double x,double y){
+        RectangleFramePicture frame=new RectangleFramePicture(x,y,300,200);
+        frame.drawFrame(200,Color.green);
+        this.add(frame);
+        Random read=new Random();
+        int check=read.nextInt(2);
+        if (check==1){
+            frame.addFlower(20,20,50,50);
+        }else if(check==0){
+            frame.addFace(20,20,50,50);
+        }
 
 
 
+    }
 
+    private void addRandomOvalFrame(double x,double y){
+        OvalFramePicture frame=new OvalFramePicture(x,y,300,200);
+        frame.drawFrame(200,Color.red);
+        this.add(frame);
+        Random read=new Random();
+        int check=read.nextInt(2);
+        if (check==1){
+            frame.addFlower(50,30,50,50);
+        }else if(check==0){
+            frame.addFace(20,20,50,50);
+        }
+
+
+
+    }
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Point location=e.getPoint();
+        double x = location.getX();
+        double y = location.getY();
+        GraphicsObject clicked = this.getElementAt(x, y);
+        if (clicked==null){
+           Random read=new Random();
+           int check=read.nextInt(2);
+           if (check==1){
+               addRandomRectangleFrame(x,y);
+           }else if(check==0){
+               addRandomOvalFrame(x,y);
+
+           }
+
+        }
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        lastMouseLocation = e.getPoint();
+        dragging = getElementAt(lastMouseLocation.getX(), lastMouseLocation.getY());
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        lastMouseLocation = null;
+        dragging = null;
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        if (dragging != null) {
+            Point currentPosition = e.getPoint();
+            double dx = currentPosition.getX() - lastMouseLocation.getX();
+            double dy = currentPosition.getY() - lastMouseLocation.getY();
+            dragging.move(dx, dy);
+        }
+        lastMouseLocation = e.getPoint();
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
 }

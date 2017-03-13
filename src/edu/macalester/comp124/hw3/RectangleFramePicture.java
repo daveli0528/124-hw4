@@ -1,9 +1,11 @@
 package edu.macalester.comp124.hw3;
 
+import activityStarterCode.TrainDrawer;
 import activityStarterCode.graphicsGroupEx.Face;
 import comp124graphics.*;
 import comp124graphics.Image;
 import comp124graphics.Rectangle;
+import kluver.section1.inheritance.Flower;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,6 +61,12 @@ public class RectangleFramePicture extends Picture{
      * @param width width of the face
      * @param height height of the face
      */
+    public void addFlower(double x,double y,double width,double height){
+        Flower flower=new Flower(x,y,width);
+        this.add(flower);
+
+
+    }
     public void addFace(double x,double y,double width,double height){
         Face face=new Face(x,y,width,height);
         this.add(face);
