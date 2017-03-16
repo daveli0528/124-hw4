@@ -37,4 +37,8 @@ public abstract class Picture extends GraphicsGroup {
      */
     public abstract void drawFrame(float frameWidth, Color color);
 
+    public abstract void addPicture(int x,int y,String string);
+
+
+
 }
